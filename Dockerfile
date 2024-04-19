@@ -14,14 +14,13 @@
 
 #################################################
 # This is the "build" stage of the Docker build
+# We can copy files from this stage into the
+# application image (which will be the next stage)
 #################################################
 FROM ubi8/ubi:8.9-1160 AS build
 
 # Install Fortran compiler (and clean up cache afterwards)
-RUN dnf -y install gcc-gfortran \
-    && dnf clean all \
-    && rm -rf /var/cache/dnf/* \
-    && rm -rf /var/cache/yum 
+RUN dnf -y install gcc-gfortran
 
 # Copy source to build directory and Compile
 WORKDIR /build
@@ -42,7 +41,7 @@ RUN dnf -y install libgfortran \
     && rm -rf /var/cache/dnf/* \
     && rm -rf /var/cache/yum
 
-# Copy the application from the build layer to /app directory
+# Copy the application from the build stage to /app directory
 WORKDIR /app
 COPY --from=build /build/Application .
 
