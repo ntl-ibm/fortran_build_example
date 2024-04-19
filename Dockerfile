@@ -19,7 +19,7 @@
 #################################################
 FROM ubi8/ubi:8.9-1160 AS build
 
-# Install Fortran compiler (and clean up cache afterwards)
+# Install Fortran compiler
 RUN dnf -y install gcc-gfortran
 
 # Copy source to build directory and Compile
@@ -35,7 +35,7 @@ RUN gfortran -c *.f90 \
 FROM ubi8/ubi:8.9-1160
 LABEL maintainer="Nick Lawrence <ntl@us.ibm.com>"
 
-# Install Fortran runtime
+# Install Fortran runtime (and cleanup cache afterwards)
 RUN dnf -y install libgfortran \
     && dnf clean all \
     && rm -rf /var/cache/dnf/* \
