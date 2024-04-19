@@ -13,6 +13,11 @@ RUN gfortran -c *.f90 \
 
 FROM ubi8/ubi:8.9-1160
 LABEL maintainer="Nick Lawrence <ntl@us.ibm.com>"
+RUN dnf -y install libgfortran \
+    && dnf clean all \
+    && rm -rf /var/cache/dnf/* \
+    && rm -rf /var/cache/yum
+    
 WORKDIR /app
 COPY --from=build /build/Application .
 RUN chgrp 0 Application
