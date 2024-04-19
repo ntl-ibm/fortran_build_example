@@ -84,7 +84,9 @@ Tip: The resources created from the yaml can be deleted by:
 
 It is now possible to trigger a build from the command line. For this example, the source code (with the Docker file) is in the directory ./fortran_build_example.
 
-`oc start-build buildconfig.build.openshift.io/binary-single-step --from-dir ./fortran_build_example`
+```
+oc start-build buildconfig.build.openshift.io/binary-single-step --from-dir ./fortran_build_example
+```
 
 You should expect to see messages like this:
 
