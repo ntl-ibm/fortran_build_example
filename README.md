@@ -95,6 +95,10 @@ You should expect to see messages like this:
 
 The last line contains the build resource: build.build.openshift.io/binary-single-step-2
 
+**The build resource will be different each time a build is started for the config.**
+
+We'll use the build resource to monitor the build.
+
 ## Monitor the build
 
 Using the build resource, you can retrieve the logs of the build. The "-f" will cause the logs to be streamed until the build completes.
@@ -151,10 +155,16 @@ You should see output such as:
 You can monitor the job's progress with:
 `oc get job.batch/fortran-example-job  --watch`
 
-You should eventually see a line
+You should eventually see something like:
 
-> NAME COMPLETIONS DURATION AGE
-> fortran-example-job 1/1 17s 17s
+<PRE>
+NAME                COMPLETIONS DURATION AGE
+fortran-example-job   0/1           8s         8s
+fortran-example-job   0/1           10s        10s
+fortran-example-job   0/1           15s        15s
+fortran-example-job   0/1           17s        17s
+fortran-example-job   1/1           17s        17s
+</PRE>
 
 (Press CTRL-C to break out of the watch at this point)
 
