@@ -17,6 +17,7 @@
 # We can copy files from this stage into the
 # application image (which will be the next stage)
 #################################################
+# UBI Image Doc: https://catalog.redhat.com/software/containers/ubi8/ubi/5c359854d70cc534b3a3784e?architecture=ppc64le&image=660382bfd810c7615d566e00&container-tabs=packages
 FROM ubi8/ubi:8.9-1160 AS build
 
 # Install Fortran compiler
@@ -32,6 +33,7 @@ RUN gfortran -c *.f90 \
 #######################################################
 # This builds the container image with the application
 #######################################################
+# UBI Image Doc: https://catalog.redhat.com/software/containers/ubi8/ubi/5c359854d70cc534b3a3784e?architecture=ppc64le&image=660382bfd810c7615d566e00&container-tabs=packages
 FROM ubi8/ubi:8.9-1160
 LABEL maintainer="Nick Lawrence <ntl@us.ibm.com>"
 
