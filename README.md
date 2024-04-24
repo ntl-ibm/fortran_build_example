@@ -163,7 +163,7 @@ You can monitor the job's progress with:
 You should eventually see something like:
 
 <PRE>
-NAME                COMPLETIONS DURATION AGE
+NAME                  COMPLETIONS   DURATION   AGE
 fortran-example-job   0/1           8s         8s
 fortran-example-job   0/1           10s        10s
 fortran-example-job   0/1           15s        15s
