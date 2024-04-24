@@ -73,9 +73,9 @@ The “env” section defines the environment variables that will be available t
  
 In practice, users probably want a script or program in your container to be the command…I just did an inline script for easier visualization.
 
-1.       Delete the output directory, if it exists
-2.       Create the output directory.
-3.       For demo, write contents of my hello world application to a file in the directory for the job.
+1. Delete the output directory, if it exists
+2. Create the output directory.
+3. For demo, write contents of my hello world application to a file in the directory for the job.
 
 ## View the data using Kubeflow Notebook
 One approach to accessing the data from the job is to start a Kubeflow Notebook server with the volume mounted.
