@@ -46,7 +46,7 @@ In the yaml:
 
     b. The repository is [current-project] / "my-container-image".
 
-          Note: The current project is set into the yaml file by the bash snipplet.
+          Note: The current project is set into the yaml file by the bash snipplet's cat command with redirection to file and [heredoc](https://linuxize.com/post/bash-heredoc/).
 
     c. The tag will be 1.0.0
 
