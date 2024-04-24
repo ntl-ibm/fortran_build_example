@@ -46,11 +46,12 @@ In the yaml:
 
     b. The repository is [current-project] / "my-container-image".
 
-          Note: The current project is set into the yaml file by the bash snipplet's cat command with variable replacement.
-    
-          The command redirects to file and uses a [heredoc](https://linuxize.com/post/bash-heredoc/).
-
     c. The tag will be 1.0.0
+
+
+Note: The current project is set into the yaml file by the bash snipplet's cat command with variable replacement.
+  
+The command redirects to file and uses a [heredoc](https://linuxize.com/post/bash-heredoc/).
 
 ```
 cat << EOF > buildcfg.yaml
