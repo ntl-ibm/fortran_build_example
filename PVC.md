@@ -6,7 +6,7 @@ This document describes adjustment to README.md so that the output of the job is
 
 This is a Yaml document to create a PVC that multiple pods can use it at the same time.
 
-```
+```yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -26,7 +26,7 @@ Either way the key is that it must be “ReadWriteMany”.
 ## Modify the Job Description to use the PVC
 
 The job description from README.md can be modified like this:
-```
+```yaml
 apiVersion: batch/v1
 kind: Job
 metadata:
