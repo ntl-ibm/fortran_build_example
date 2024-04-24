@@ -1,4 +1,4 @@
-# Extend the example to use PVCs
+# Extend the example in README.md to use PVCs
 
 This document describes adjustment to README.md so that the output of the job is stored on a PVC.
 
@@ -72,6 +72,7 @@ That’s enough to make the PVC storage available to the container. But when usi
 The “env” section defines the environment variables that will be available to the container.  The valueFrom is a fancy way to the get the job name set into the JOB_NAME environment variable.
  
 In practice, users probably want a script or program in your container to be the command…I just did an inline script for easier visualization.
+
 1.       Delete the output directory, if it exists
 2.       Create the output directory.
 3.       For demo, write contents of my hello world application to a file in the directory for the job.
