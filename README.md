@@ -10,7 +10,7 @@ This repo contains
 
 The source code (including the Dockerfile) needs to be copied to a local directory where `oc` commands can be run.
 
-```bash
+```shell
 git clone https://github.com/ntl-ibm/fortran_build_example.git
 ```
 
