@@ -17,7 +17,7 @@ oc run example-pod --image image-registry.openshift-image-registry.svc:5000/ntl-
 If you already have the pod you are interested in debugging, then you can do the same kind of thing with oc exec.
 Frist get the name of the pod (assuming that the pod is running as part of a job).
 
-```shell
+```
 oc get pods -l job-name=fortran-example-job
 ```
 
@@ -28,7 +28,7 @@ fortran-example-job-ftxt8   1/1     Running   0          12s
 
 And then open a bash shell in the container
 
-```shell
+```
 oc exec fortran-example-job-ftxt8 -it -- bash
 ```
  
