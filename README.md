@@ -20,7 +20,7 @@ Another option would be to download and uncompress the zip file.
 
 My namespace is ntl-us-ibm-com, so that is what is used in the examples.
 
-```bash
+```shell
 oc project ntl-us-ibm-com
 ```
 
@@ -53,7 +53,7 @@ Note: The current project is set into the yaml file by the bash snipplet's cat c
   
 The command redirects to file and uses a [heredoc](https://linuxize.com/post/bash-heredoc/).
 
-```
+```shell
 cat << EOF > buildcfg.yaml
 ---
 apiVersion: build.openshift.io/v1
@@ -129,7 +129,7 @@ This is the absolute digest for the image. It will never be reused and will alwa
 For test purposes, we can create a Job that contains a Pod with a container using the image.
 The command has been overriden in this example to provide a parameter on the command line. If we did not supply the command, then the default command from the Docker file would be used.
 
-```
+```shell
 cat << EOF > my-job.yaml
 ---
 apiVersion: batch/v1
