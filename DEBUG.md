@@ -34,3 +34,39 @@ oc exec fortran-example-job-ftxt8 -it -- bash
  
 The catch with doing that is as soon as the command that started the container ends, the container ends and your interactive session gets terminated.
 
+## Debug a failing job
+There are two important parts to the job spec:
+* backoffLimit  (default is 6)
+
+The backoffLimit tells the JOB to create a new pod and try again up to 6 times when the pod fails. (You’ll get 7 failures).  
+
+The time between retries is exponentially increased up to six minutes.
+
+* restartPolicy (set to Never in the example)
+
+The restartPolicy never tells OpenShift to not restart the container when it fails.  The Pod will end up in an error state (as opposed to restarting the container and incrementing the restart count).
+
+After failing more times than the backoffLimit, the job is marked "Failed" with reason "BackoffLimitExceeded".
+
+If a describe is done on a pod that has failed, you will be able to see the exit code for a container that has failed.
+
+```yaml
+Containers:
+  main:
+    Container ID:  xxxx
+    Image:         image-registry.openshift-image-registry.svc:5000/xxxx
+    Image ID:      image-registry.openshift-image-registry.svc:5000/xxxx
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      ./Application
+    State:          Terminated
+      Reason:       Error
+      Exit Code:    2
+      Started:      Thu, 25 Apr 2024 08:50:41 -0400
+      Finished:     Thu, 25 Apr 2024 08:50:41 -0400
+    Ready:          False
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+```
