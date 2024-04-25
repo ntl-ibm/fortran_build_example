@@ -70,3 +70,5 @@ Containers:
     Environment:    <none>
     Mounts:
 ```
+
+The logs for the job can be obtained using the `oc logs -n <namespace> <pod> -c <container-name> -f` command.
