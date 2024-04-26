@@ -72,3 +72,7 @@ Containers:
 ```
 
 The logs for the job can be obtained using the `oc logs -n <namespace> <pod> -c <container-name> -f` command.
+
+## Missing files or permission problems (for files that should be included by a continaer image build).
+OpenShift runs containers under an arbitrary user id.  For files and directories to be accessed, they must be owned by the root group and be read/writtable by that group.  More information is available [here](https://docs.openshift.com/container-platform/4.12/openshift_images/create-images.html#use-uid_create-images)
+
