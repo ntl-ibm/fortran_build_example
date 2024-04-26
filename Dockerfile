@@ -12,6 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+###
+# Dockerfile creation tips: 
+# https://docs.openshift.com/container-platform/4.12/openshift_images/create-images.html
+###
+
 #################################################
 # This is the "build" stage of the Docker build
 # We can copy files from this stage into the
